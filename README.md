@@ -32,7 +32,10 @@ echo 'ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"' >> ~/.zshrc
 ## 3.1) OPTIONAL: Copy .zshrc from repo
 cp -a ./zshrc ~/.zshrc
 
-# 4) Reload .zshrc
+# 4) Update ZSH_THEME
+sed -i -E 's/(ZSH_THEME=)".*"/\1"ayd"/' ~/.zshrc
+
+# 5) Reload .zshrc
 source ~/.zshrc
 ```
 
