@@ -107,3 +107,4 @@ source $ZSH/oh-my-zsh.sh
 ##########
 alias vim='TERM=xterm-256color vim'
 alias vi='TERM=xterm-256color vi'
+precmd() { print "" }
