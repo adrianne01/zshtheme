@@ -38,6 +38,8 @@ sed -i -E 's/(ZSH_THEME=)".*"/\1"ayd"/' ~/.zshrc
 # 5) Reload .zshrc
 source ~/.zshrc
 ```
+### Screenshot
+![Theme Screenshot](./theme_screenshot.png)
 
 ### Themes referenced
 - [af-magic](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#af-magic)
