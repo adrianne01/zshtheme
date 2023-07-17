@@ -1,24 +1,29 @@
-local user='%{$FG[201]%}%n%{$reset_color%}'
-local host='%{$FG[220]%}%m%{$reset_color%}'
-local pwd='%{$FG[032]%}%~%{$reset_color%}'
-local arrow='%{$FG[051]%}➤ %{$reset_color%}'
+typeset +H _current_dir="%{$FG[014]%}%~%{$reset_color%}"
+typeset +H _status_code="%(?..%{$FG[001]%}%?%{$reset_color%}"
 
-# primary prompt: user@host::dir, shows git info if available
-PS1="${user}@${host}::${pwd}\$(git_prompt_info)\$(hg_prompt_info)
-${arrow}"
-PS2='%{$FG[088]} %{$reset_color%}'
+function _user_host() {
+  local me
+  if [[ -n $SSH_CONNECTION ]]; then
+    me="%{$FG[011]%}%n%{$reset_color%}@%{$FG[013]%}%m%{$reset_color%}"
+  elif [[ $LOGNAME != $USERNAME ]]; then
+    me="%{$FG[011]%}%n%{$reset_color%}"
+  else
+    me="%{$FG[011]%}unknown%{$reset_color%}"
+  fi
+  if [[ -n $me ]]; then
+    echo "$me"
+  fi
+}
 
-# right prompt: return code
-RPS1='%(?..%{$FG[203]%}%?%{$reset_color%})'
+# primary prompt: dir, git info(if any)
+PS1='${_current_dir} $(git_prompt_info)
+%{$FG[005]%}》%{$reset_color%}'
+
+# right prompt: user@host, status code
+RPS1='%{$(echotc UP 1)%}$(_user_host)%{$(echotc DO 1)%}${_status_code}'
 
 # git settings
-ZSH_THEME_GIT_PROMPT_PREFIX=" ${FG[075]}(${FG[078]}"
+ZSH_THEME_GIT_PROMPT_PREFIX="${FG[012]}『${FG[010]}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="${FG[214]}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[075]})%{$reset_color%}"
-
-# hg settings
-ZSH_THEME_HG_PROMPT_PREFIX=" ${FG[075]}(${FG[078]}"
-ZSH_THEME_HG_PROMPT_CLEAN=""
-ZSH_THEME_HG_PROMPT_DIRTY="${FG[214]}*%{$reset_color%}"
-ZSH_THEME_HG_PROMPT_SUFFIX="${FG[075]})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="${FG[011]} シ%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="${FG[012]} 』%{$reset_color%}"

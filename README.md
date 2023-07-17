@@ -41,5 +41,4 @@ source ~/.zshrc
 
 ### Themes referenced
 - [af-magic](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#af-magic)
-- [alanpeabody](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#alanpeabody)
-
+- [avit](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#avit)
