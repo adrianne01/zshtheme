@@ -21,7 +21,7 @@ PS1='
 ${_current_dir} $(git_prompt_info)
 %{$FG[005]%}》%{$reset_color%}'
 
-# right prompt: user@host, status code
+# right prompt: datetime, user@host, status code
 RPS1='%{$(echotc UP 1)%}${_date_time}$(_user_host)%{$(echotc DO 1)%}${_status_code}'
 
 # git settings
