@@ -19,10 +19,6 @@ git clone https://github.com/adrianne01/zshtheme.git
 cd zshtheme
 
 # 2) Copy custom theme
-## 2.1) Copy whole custom directory
-cp -a ./.oh-my-zsh/custom/ ~/.oh-my-zsh/custom/
-## or
-## 2.2) Copy theme only
 cp -a ./.oh-my-zsh/custom/themes/ayd.zsh-theme ~/.oh-my-zsh/custom/themes/
 
 # 3) Add custom dir to .zshrc
@@ -44,3 +40,4 @@ source ~/.zshrc
 ### Themes referenced
 - [af-magic](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#af-magic)
 - [avit](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#avit)
+
