@@ -14,19 +14,19 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 
 ### How to use
 ```bash
-# 1) Clone repo and change directory
-git clone https://github.com/adrianne01/zshtheme.git
-cd zshtheme
+# 1) Change directory to oh-my-zsh custom themes
+cd ~/.oh-my-zsh/custom/themes
 
-# 2) Copy custom theme
-cp -a ./.oh-my-zsh/custom/themes/ayd.zsh-theme ~/.oh-my-zsh/custom/themes/
+# 2) Download theme rawfile
+# via curl
+curl -OL https://raw.githubusercontent.com/adrianne01/zshtheme/master/.oh-my-zsh/custom/themes/ayd.zsh-theme
+# via wget
+wget https://raw.githubusercontent.com/adrianne01/zshtheme/master/.oh-my-zsh/custom/themes/ayd.zsh-theme
 
 # 3) Add custom dir to .zshrc
 echo 'ZSH_CUSTOM="$ZSH/custom"' >> ~/.zshrc
 # if $ZSH is not set
 echo 'ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"' >> ~/.zshrc
-## 3.1) OPTIONAL: Copy .zshrc from repo
-cp -a ./zshrc ~/.zshrc
 
 # 4) Update ZSH_THEME
 sed -i -E 's/(ZSH_THEME=)".*"/\1"ayd"/' ~/.zshrc
